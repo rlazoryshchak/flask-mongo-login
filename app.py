@@ -1,4 +1,8 @@
 from flask import *
+from models import *
+import rlcompleter, pdb
+
+# pdb.Pdb.complete=rlcompleter.Completer(locals()).complete;pdb.set_trace()
 
 app = Flask(__name__)
 
@@ -21,7 +25,7 @@ def login():
 		else:
 			session['logged_in'] = True
 			flash('You are logged in')
-			return redirect(url_for('home'))
+			return redirect(url_for('welcome'))
 	return render_template('login.html', error=error)
 
 @app.route('/logout')
