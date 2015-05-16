@@ -15,7 +15,6 @@ def load_user(id):
 
 @app.route('/')
 def home():
-    pdb.Pdb.complete=rlcompleter.Completer(locals()).complete;pdb.set_trace()
     return render_template('home.html')
 
 @app.route('/welcome')
