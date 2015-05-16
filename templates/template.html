@@ -13,23 +13,22 @@
           </section>
 
           <section class="middle tab-bar-section">
-            <h1 class="title">Foundation</h1>
+            <h1 class="title">Flask Mongo</h1>
           </section>
         </nav>
 
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label>Foundation</label></li>
-            <li><a href="#">The Psychohistorians</a></li>
-            <li><a href="#">...</a></li>
+            <li><label>Flask Mongo</label></li>
+            {% if current_user.is_authenticated() %}
+                <li><a href="/welcome">Welcome</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% endif %}
           </ul>
         </aside>
 
         <section class="main-section">
-          <div class="container">
-            {% for message in get_flashed_messages() %}
-              <div class=flash>{{ message }}</div>
-            {% endfor %}
+          <div class="container main-content">
             {% block content %}
             {% endblock %}
           </div>

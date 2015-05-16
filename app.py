@@ -16,13 +16,15 @@ def load_user(id):
 
 @app.route('/')
 def home():
-    return 'Home'
-
+    return render_template('home.html')
 
 @app.route('/welcome')
-@login_required
 def welcome():
-    return render_template('welcome.html')
+    if current_user.is_authenticated():
+        return render_template('welcome.html')
+    else:
+        flash(login_manager.login_message)
+        return redirect(url_for('login'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -39,9 +41,10 @@ def login():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
