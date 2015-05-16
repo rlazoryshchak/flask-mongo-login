@@ -2,4 +2,3 @@ flask
 flask-login
 pymongo == 2.8.1
 mongoengine
-flask_mongoengine

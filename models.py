@@ -1,7 +1,8 @@
 from mongoengine import *
 from flask.ext.login import UserMixin
 
-connect('pcduino', host='mongodb://pcduino:pcduino@ds031932.mongolab.com:31932/pcduino')
+MONGO_HOST = ''#Example 'mongodb://user:password@ds031932.mongolab.com:31932/db'
+connect(host=MONGO_HOST)
 
 class User(Document):
     login = StringField(required=True, unique=True)

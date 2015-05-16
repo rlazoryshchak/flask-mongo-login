@@ -3,7 +3,6 @@ from flask.ext.login import LoginManager, current_user, login_user, logout_user,
 from models import *
 import rlcompleter, pdb
 
-# pdb.Pdb.complete=rlcompleter.Completer(locals()).complete;pdb.set_trace()
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -16,6 +15,7 @@ def load_user(id):
 
 @app.route('/')
 def home():
+    pdb.Pdb.complete=rlcompleter.Completer(locals()).complete;pdb.set_trace()
     return render_template('home.html')
 
 @app.route('/welcome')
