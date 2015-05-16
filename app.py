@@ -35,7 +35,7 @@ def login():
             return redirect(url_for('welcome'))
         else:
             flash('Username or password incorrect')
-            return render_template('login.html')
+            return redirect(url_for('login'))
     return render_template('login.html')
 
 
