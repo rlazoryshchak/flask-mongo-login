@@ -3,17 +3,41 @@
   <head>
     <title>FlaskTaskr</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
-    <br/>
-    <div class="container">
-      {% for message in get_flashed_messages() %}
-      <div class=flash>{{ message }}</div>
-      {% endfor %}
-      {% block content %}
-      {% endblock %}
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <h1 class="title">Foundation</h1>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Foundation</label></li>
+            <li><a href="#">The Psychohistorians</a></li>
+            <li><a href="#">...</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section">
+          <div class="container">
+            {% for message in get_flashed_messages() %}
+              <div class=flash>{{ message }}</div>
+            {% endfor %}
+            {% block content %}
+            {% endblock %}
+          </div>
+        </section>
+      <a class="exit-off-canvas"></a>
+      </div>
     </div>
+
     <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='js/foundation.min.js') }}"></script>
     <script>
@@ -21,3 +45,5 @@
     </script>
   </body>
 </html>
+
+

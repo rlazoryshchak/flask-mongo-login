@@ -6088,3 +6088,10 @@ th.hide-for-touch {
 @media not print {
   .show-for-print {
     display: none !important; } }
+.login{
+    margin-left: 0;
+    margin-top: 10px;
+}
+.main-section{
+    height: 100vh;
+}

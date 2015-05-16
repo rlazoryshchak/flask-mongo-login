@@ -12,7 +12,7 @@ app.secret_key = 'pcduino'
 
 @login_manager.user_loader
 def load_user(id):
-    return User.get(id)
+    return AuthUser.get(id)
 
 @app.route('/')
 def home():
@@ -28,7 +28,7 @@ def welcome():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        user = User.get(request.form['username'])
+        user = AuthUser.get(request.form['username'])
         if (user and user.password == request.form['password']):
             login_user(user)
             return redirect(url_for('welcome'))
@@ -45,4 +45,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
