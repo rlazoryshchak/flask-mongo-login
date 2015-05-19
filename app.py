@@ -1,8 +1,7 @@
 from flask import Flask, flash, redirect, url_for, request, get_flashed_messages, render_template, session
 from flask.ext.login import LoginManager, current_user, login_user, logout_user, login_required
+from flask.ext.bcrypt import check_password_hash
 from models import *
-import rlcompleter, pdb
-
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -30,7 +29,7 @@ def welcome():
 def login():
     if request.method == 'POST':
         user = AuthUser.get(request.form['username'])
-        if (user and user.password == request.form['password']):
+        if (user and check_password_hash(user.password, request.form['password'])):
             login_user(user)
             return redirect(url_for('welcome'))
         else:

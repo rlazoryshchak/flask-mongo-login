@@ -7,9 +7,9 @@
   * source env/bin/activate
   * pip install -r requirements.txt 
 
-######Set a mongodb host into MONGO_HOST variable in models.py after that run:
+######Set a mongodb host into MONGO_HOST variable in models.py after that create new user:
 
-  * python seed.py
+  * python seed.py login password
 
 ######This command will create credentials adm/pass
 
